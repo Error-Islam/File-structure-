@@ -1,4 +1,6 @@
-# config.yml
-
 folders:
-  - Fathom/**
+  - data/**
+  - resources/**
+
+unzip:
+  - "archives/Fathom's.zip"
