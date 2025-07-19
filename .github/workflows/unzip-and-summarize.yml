@@ -1,56 +1,68 @@
-name: Unzip and Summarize
+name: Unzip and Aggregate Files
 on:
-  workflow_dispatch:        # Manual trigger
+  workflow_dispatch:        # manual trigger (Run workflow button):contentReference[oaicite:3]{index=3}
+
 jobs:
-  extract_and_summarize:
+  unzip_and_aggregate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write      # Allow pushing changes back to the repo:contentReference[oaicite:8]{index=8}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0          # get full history for accurate diff:contentReference[oaicite:4]{index=4}
+          persist-credentials: true  # allow pushing via GITHUB_TOKEN:contentReference[oaicite:5]{index=5}
 
-      - name: Read config.yml and unzip files
-        shell: bash
-        run: |
-          # Read each zip file from config.yml
-          mapfile -t files < <(grep -oP '(?<=- ")(.*?)(?=")' config.yml)
-          folders=()
-          for file in "${files[@]}"; do
-            # Derive folder name by removing .zip
-            folder=$(basename "$file" .zip)
-            folders+=("$folder")
-            mkdir -p "$folder"
-            echo "Unzipping '$file' into folder '$folder/'"
-            unzip -q "$file" -d "$folder"
-          done
+      - name: Set up Python for YAML parsing
+        uses: actions/setup-python@v4
 
-      - name: Create data.txt summary of extracted files
-        shell: bash
+      - name: Read config.yml and process ZIPs
         run: |
+          pip install PyYAML
+
+          # Read the list of ZIP files from config.yml
+          files=$(python - <<'EOF'
+import yaml
+config = yaml.safe_load(open('config.yml'))
+for z in config.get('unzip', []):
+    print(z)
+EOF
+          )
+          # Split into array, one entry per line
+          IFS=$'\n' read -r -d '' -a zips <<< "$files"
+          
+          # Prepare/clear the data.txt output
           echo "" > data.txt
-          for folder in "${folders[@]}"; do
-            # List each file path and its contents
-            find "$folder" -type f | while read filepath; do
-              echo "${filepath}:" >> data.txt
-              cat "$filepath" >> data.txt
+
+          # Loop over each ZIP file
+          for zipfile in "${zips[@]}"; do
+            # Compute base folder name (remove .zip, safely handle spaces)
+            base=$(basename "$zipfile" .zip)
+            # Remove any previous extraction and recreate the folder
+            rm -rf "$base"
+            mkdir -p "$base"
+            # Unzip into the folder (quiet mode); quotes handle special characters
+            unzip -q "$zipfile" -d "$base"
+
+            # Append each file’s path and contents to data.txt
+            # (find handles spaces with IFS= read -r)
+            find "$base" -type f -print0 | while IFS= read -r -d '' file; do
+              echo "===== File: $file =====" >> data.txt
+              cat "$file" >> data.txt
               echo "" >> data.txt
             done
           done
-          echo "Summary written to data.txt."
 
-      - name: Commit and push changes
-        shell: bash
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          # Only commit if there are changes (e.g. new files or updated data.txt)
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "Add unzipped folders and update data.txt"
+          # Configure git for committing
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage changes (data.txt and any new/extracted folders)
+          git add .
+          
+          # If there are changes, commit and push
+          if ! git diff --cached --quiet; then
+            git commit -m "Update data.txt and unzipped contents"
             git push
           else
-            echo "No new changes to commit."
+            echo "No changes to commit."
           fi
