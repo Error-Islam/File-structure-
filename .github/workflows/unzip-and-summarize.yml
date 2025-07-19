@@ -1,78 +1,44 @@
-name: Unzip and Summarize One Zip File
+name: Unzip and Summarize Zip Contents
 
 on:
   workflow_dispatch:
 
 jobs:
-  unzip_summarize:
+  unzip-and-combine:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write   # allows pushing changes with GITHUB_TOKEN
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install unzip and python deps
+      - name: Parse config and unzip archives
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
-          pip install pyyaml
-
-      - name: Unzip and summarize contents into one data.txt
-        run: |
+          # Create a temp directory for extraction
           mkdir -p temp_unzip
+          # Read each zip filename from config.yml
+          grep -E '^\\s*-' config.yml | sed 's/^[[:space:]]*-\\s*//;s/"//g' | while IFS= read -r zipfile; do
+            echo "Unzipping $zipfile ..."
+            unzip "$zipfile" -d temp_unzip
+          done
 
-          python3 <<EOF
-import yaml
-from pathlib import Path
-import subprocess
-import shutil
-
-# Load config
-with open("config.yml") as f:
-    config = yaml.safe_load(f)
-
-zip_files = config.get("unzip", [])
-if not zip_files:
-    print("❌ No zip files listed in config.yml")
-    exit(1)
-
-for zip_file in zip_files:
-    zip_path = Path(zip_file)
-    if not zip_path.exists():
-        print(f"❌ Zip file not found: {zip_path}")
-        continue
-
-    temp_dir = Path("temp_unzip") / zip_path.stem
-    if temp_dir.exists():
-        shutil.rmtree(temp_dir)
-    temp_dir.mkdir(parents=True)
-
-    print(f"Unzipping {zip_path} to {temp_dir}")
-    subprocess.run(["unzip", "-qq", str(zip_path), "-d", str(temp_dir)], check=True)
-
-    output_path = Path("data.txt")
-    with open(output_path, "a", encoding="utf-8") as out:
-        out.write(f"\n\n===== Contents of {zip_file} =====\n\n")
-        for file_path in sorted(temp_dir.rglob("*")):
-            if file_path.is_file():
-                try:
-                    content = file_path.read_text(encoding="utf-8")
-                except Exception as e:
-                    content = f"<Failed to read file: {e}>"
-                out.write(f"({file_path.relative_to(temp_dir)})\n-\n{content}\n\n")
-    print(f"✅ Appended contents of {zip_file} to {output_path}")
-
-    shutil.rmtree(temp_dir)
-EOF
-
-      - name: Commit data.txt only if changed
+      - name: Combine file contents
         run: |
-          git config user.name "Zip Summarizer Bot"
-          git config user.email "bot@example.com"
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes to commit."
-          else
-            git add data.txt
-            git commit -m "Add/update combined data.txt from unzipped zip(s)"
-            git push
-          fi
+          # Create or clear data.txt
+          echo > data.txt
+          # For every file in temp_unzip, append its contents to data.txt
+          find temp_unzip -type f | while IFS= read -r filepath; do
+            # Use relative path for display
+            relpath="${filepath#temp_unzip/}"
+            echo "===== File: $relpath =====" >> data.txt
+            cat "$filepath" >> data.txt
+            echo >> data.txt
+          done
+
+      - name: Commit and push data.txt
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add data.txt
+          git commit -m "Add unzipped data summary"
+          git push origin HEAD:main
