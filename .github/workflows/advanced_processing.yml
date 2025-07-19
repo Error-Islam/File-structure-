@@ -65,6 +65,9 @@ jobs:
           done
           echo "🗂️ Extracted assets: $(find extracted_assets -type f | wc -l) files"
 
+      - name: 📦 Install required npm packages
+        run: npm install js-yaml glob@^10.3.1
+
       - name: 🧠 Intelligent content processing
         id: processor
         uses: actions/github-script@v6
@@ -75,11 +78,11 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const yaml = require('js-yaml');
-            const globModule = require('glob');
+            const glob = require('glob');
 
             // 1. Combine all files into data.txt
             let combinedContent = '';
-            const allFiles = await globModule.glob('extracted_assets/**/*', { nodir: true });
+            const allFiles = glob.sync('extracted_assets/**/*', { nodir: true });
             
             allFiles.forEach(file => {
               try {
@@ -102,7 +105,7 @@ jobs:
 
             let generatedCount = 0;
             for (const pattern of patterns) {
-              const matchedFiles = await globModule.glob(`extracted_assets/${pattern}`, { nodir: true });
+              const matchedFiles = glob.sync(`extracted_assets/${pattern}`, { nodir: true });
               
               for (const file of matchedFiles) {
                 try {
