@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "structure": "fathoms:rocky_waters/small",
+      "weight": 2
+    },
+    {
+      "structure": "fathoms:rocky_waters/medium",
+      "weight": 4
+    },
+    {
+      "structure": "fathoms:rocky_waters/large",
+      "weight": 2
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 30,
+    "salt": 745673657,
+    "exclusion_zone": {
+      "other_set": "minecraft:ocean_monuments",
+      "chunk_count": 6
+    }
+  }
+}

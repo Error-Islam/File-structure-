@@ -1,0 +1,11 @@
+{
+  "description": {
+    "translate": "instrument.fathoms.conch_shell.love"
+  },
+  "range": 256.0,
+  "sound_event": {
+    "sound_id": "fathoms:item.conch_shell.love",
+    "range": 256
+  },
+  "use_duration": 5
+}

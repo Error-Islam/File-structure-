@@ -1,0 +1,2 @@
+execute if items entity @s weapon.* minecraft:warped_fungus_on_a_stick[minecraft:custom_data~{fathoms:{id:"sunken_scrawl"}}] run function fathoms:item/sunken_scrawl/start
+execute if items entity @s weapon.mainhand minecraft:warped_fungus_on_a_stick[minecraft:custom_data~{fathoms:{id:"gastronomicon"}}] run function fathoms:item/gastronomicon/start

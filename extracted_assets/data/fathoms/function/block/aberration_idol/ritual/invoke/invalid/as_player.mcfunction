@@ -1,0 +1,1 @@
+execute unless score #fathoms.error fathoms.dummy matches 1 run title @s actionbar [{"text":"0 ","font":"fathoms:icon"},{"translate":"ui.fathoms.ritual.fail.invalid","color":"#ff4d24","font":"minecraft:default"}]

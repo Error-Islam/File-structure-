@@ -1,0 +1,65 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:goat_horn"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.conch_shell"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "instrument.fathoms.conch_shell.return",
+                "color": "gray",
+                "italic": false
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "conch_shell"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:conch_shell/conch",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "minecraft:instrument": "fathoms:conch_shell/conch/return",
+            "minecraft:tooltip_display": {
+              "hidden_components": [
+                "minecraft:instrument"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

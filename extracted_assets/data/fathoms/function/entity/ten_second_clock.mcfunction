@@ -1,0 +1,1 @@
+execute if entity @s[tag=fathoms.entity.kelpie] run return run function fathoms:entity/kelpie/ten_second_clock

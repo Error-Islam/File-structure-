@@ -1,0 +1,56 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_shovel"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.netherite_ornate_shovel"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "netherite_ornate_shovel"
+              }
+            },
+            "minecraft:item_model": "fathoms:ornate_tool/shovel",
+            "minecraft:custom_model_data": {
+              "strings": [
+                "netherite"
+              ]
+            },
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "rare",
+            "minecraft:repairable": {
+              "items": "minecraft:netherite_ingot"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/message_in_a_bottle/base"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_lore",
+          "entity": "this",
+          "lore": [
+            {
+              "translate": "item.fathoms.message_in_a_bottle.description",
+              "with": [
+                {
+                  "translate": "biome.minecraft.ocean",
+                  "color": "gray",
+                  "italic": false
+                }
+              ],
+              "color": "gray",
+              "italic": false
+            }
+          ],
+          "mode": "insert",
+          "offset": 1
+        },
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "message_in_a_bottle"
+              },
+              "thallium": {
+                "grab_bag": {
+                  "loot_table": "fathoms:gameplay/messages_in_bottles/ocean",
+                  "open_sound": "fathoms:item.message_in_a_bottle",
+                  "function": "fathoms:item/message_in_a_bottle/open"
+                }
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/oak",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"oak\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/spruce",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"spruce\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/birch",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"birch\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/jungle",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"jungle\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/dark_oak",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"dark_oak\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/acacia",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"acacia\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/mangrove",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"mangrove\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/cherry",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"cherry\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/bamboo",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"bamboo\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/pale_oak",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"pale_oak\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/crimson",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"crimson\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/warped",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"warped\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/deepslate",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"deepslate\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/stone",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"stone\"]}}}}"
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/chopping_block/sandstone",
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "nbt": "{item:{components:{\"minecraft:custom_model_data\":{strings:[\"sandstone\"]}}}}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

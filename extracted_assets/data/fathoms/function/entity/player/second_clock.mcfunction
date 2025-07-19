@@ -1,0 +1,1 @@
+execute if score @s fathoms.ritual.charm_of_butchery.duration matches 1.. run scoreboard players remove @s fathoms.ritual.charm_of_butchery.duration 1

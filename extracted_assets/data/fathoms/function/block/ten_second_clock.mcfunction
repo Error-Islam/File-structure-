@@ -1,0 +1,2 @@
+execute if entity @s[tag=fathoms.block.dredging_apparatus] run return run function fathoms:block/dredging_apparatus/ten_second_clock
+execute if entity @s[tag=fathoms.block.aberration_idol.active_effect] run return run function fathoms:block/aberration_idol/ritual/active/ten_second_clock with entity @s data.fathoms.ritual

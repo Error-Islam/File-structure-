@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:fishing_rod"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.bamboo_fishing_rod"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "bamboo_fishing_rod"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:bamboo_fishing_rod",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "common",
+            "minecraft:max_damage": 128
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "processor_type": "minecraft:rule",
+    "rules": [
+      {
+        "position_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:white_glazed_terracotta",
+          "probability": 0.5
+        },
+        "output_state": {
+          "Name": "minecraft:cobblestone"
+        }
+      },
+      {
+        "position_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "input_predicate": {
+          "predicate_type": "minecraft:random_block_match",
+          "block": "minecraft:white_glazed_terracotta",
+          "probability": 0.25
+        },
+        "output_state": {
+          "Name": "minecraft:mossy_cobblestone"
+        }
+      }
+    ]
+  },
+  {
+    "processor_type": "minecraft:rule",
+    "rules": [
+      {
+        "position_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "input_predicate": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:white_glazed_terracotta"
+        },
+        "output_state": {
+          "Name": "minecraft:stone"
+        }
+      }
+    ]
+  }
+]

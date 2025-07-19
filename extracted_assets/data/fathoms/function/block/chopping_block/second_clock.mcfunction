@@ -1,0 +1,1 @@
+execute if entity @s[tag=fathoms.block.chopping_block.has_aberration] run function fathoms:block/chopping_block/has_aberration

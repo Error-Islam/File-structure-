@@ -1,0 +1,2 @@
+data modify entity @s item.components."minecraft:custom_data".fathoms.function_as_idol set value "fathoms:block/aberration_idol/ritual/invoke/charm_of_butchery/as_idol"
+data modify entity @s item.components."minecraft:custom_data".fathoms.function_as_player set value "fathoms:block/aberration_idol/ritual/invoke/charm_of_butchery/as_player"

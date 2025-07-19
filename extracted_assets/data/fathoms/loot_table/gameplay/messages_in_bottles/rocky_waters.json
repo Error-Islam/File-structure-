@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "weight": 1,
+          "value": "fathoms:items/nautical_map/oasis"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "value": "fathoms:items/sunken_scrawl/rocky_waters/divine_gift"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "weight": 2,
+          "value": "fathoms:items/sunken_scrawl/rocky_waters/conjure_beasts"
+        }
+      ]
+    }
+  ]
+}

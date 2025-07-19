@@ -1,0 +1,57 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/sunken_scrawl/base"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_lore",
+          "entity": "this",
+          "lore": [
+            [
+              {
+                "translate": "biome.minecraft.ocean",
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "text": ": 4/",
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "translate": "item.fathoms.sunken_scrawl.total_scrawls.ocean",
+                "color": "gray",
+                "italic": false
+              }
+            ],
+            {
+              "translate": "ritual.fathoms.morph_steed",
+              "color": "#a6d0b9",
+              "italic": false
+            }
+          ],
+          "mode": "insert",
+          "offset": 3
+        },
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:custom_model_data": {
+              "strings": [
+                "morph_steed",
+                "front"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

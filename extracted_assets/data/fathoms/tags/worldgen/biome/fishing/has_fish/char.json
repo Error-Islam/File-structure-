@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#minecraft:is_badlands",
+    "#minecraft:is_savanna",
+    "minecraft:desert",
+    "#minecraft:is_jungle",
+    "fathoms:oasis",
+    "fathoms:ancient_reservoir"
+  ]
+}

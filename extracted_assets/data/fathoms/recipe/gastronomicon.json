@@ -1,0 +1,98 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      "minecraft:cod",
+      "minecraft:salmon",
+      "minecraft:tropical_fish"
+    ],
+    "minecraft:book"
+  ],
+  "result": {
+    "id": "minecraft:warped_fungus_on_a_stick",
+    "components": {
+      "minecraft:item_name": {
+        "translate": "item.fathoms.gastronomicon"
+      },
+      "minecraft:lore": [
+        [
+          {
+            "text": "0 ",
+            "color": "white",
+            "font": "fathoms:icon",
+            "italic": false
+          },
+          {
+            "translate": "ui.fathoms.title",
+            "color": "white",
+            "font": "fathoms:tooltip",
+            "italic": false
+          }
+        ],
+        {
+          "translate": "item.fathoms.gastronomicon.description.1",
+          "with": [
+            {
+              "keybind": "key.use"
+            }
+          ],
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "translate": "item.fathoms.gastronomicon.description.2",
+          "with": [
+            {
+              "keybind": "key.left"
+            },
+            {
+              "keybind": "key.right"
+            }
+          ],
+          "color": "gray",
+          "italic": false
+        },
+        "",
+        {
+          "translate": "item.fathoms.gastronomicon.description.3",
+          "with": [
+            {
+              "translate": "item.fathoms.gastronomicon.description.4",
+              "color": "#a6d0b9",
+              "italic": false
+            }
+          ],
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "translate": "item.fathoms.gastronomicon.description.5",
+          "with": [
+            {
+              "translate": "item.fathoms.gastronomicon.description.6",
+              "color": "#6287ee",
+              "italic": false
+            }
+          ],
+          "color": "gray",
+          "italic": false
+        }
+      ],
+      "minecraft:custom_data": {
+        "fathoms": {
+          "id": "gastronomicon"
+        },
+        "smithed": {
+          "ignore": {
+            "functionality": 1,
+            "crafting": 1
+          }
+        }
+      },
+      "minecraft:item_model": "fathoms:gastronomicon",
+      "minecraft:tooltip_style": "fathoms:fathoms",
+      "minecraft:rarity": "common",
+      "!minecraft:consumable": {}
+    }
+  }
+}

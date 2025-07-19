@@ -1,0 +1,31 @@
+{
+  "condition": "minecraft:any_of",
+  "terms": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "predicates": {
+          "minecraft:custom_data": {
+            "fathoms": {
+              "bait": "chum"
+            }
+          }
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "predicates": {
+          "minecraft:custom_data": {
+            "fathoms": {
+              "bait": "sugar_bait"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

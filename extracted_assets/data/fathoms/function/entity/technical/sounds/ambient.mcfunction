@@ -1,0 +1,2 @@
+execute if entity @s[tag=fathoms.entity.kelpie,tag=!fathoms.entity.kelpie.dried] run return run playsound fathoms:entity.kelpie.ambient neutral @a[distance=..16]
+execute if entity @s[tag=fathoms.entity.kelpie.dried] run return run playsound fathoms:entity.kelpie.dried.ambient neutral @a[distance=..16]

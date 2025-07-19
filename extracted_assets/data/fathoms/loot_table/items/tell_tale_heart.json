@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.tell_tale_heart"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "tell_tale_heart"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:tell_tale_heart",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "!minecraft:consumable": {},
+            "minecraft:damage_resistant": {
+              "types": "#fathoms:tell_tale_heart_immune"
+            },
+            "minecraft:provides_trim_material": "fathoms:tell_tale_heart"
+          }
+        }
+      ]
+    }
+  ]
+}

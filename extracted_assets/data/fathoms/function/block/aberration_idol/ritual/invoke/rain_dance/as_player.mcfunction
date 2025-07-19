@@ -1,0 +1,1 @@
+execute if score #fathoms.essence.aberration fathoms.dummy matches 3 run advancement grant @s only fathoms:nautical/all_max_level_rituals rain_dance

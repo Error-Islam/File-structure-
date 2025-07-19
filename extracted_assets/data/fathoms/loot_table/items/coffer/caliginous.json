@@ -1,0 +1,102 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:furnace"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.caliginous_coffer"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "item.fathoms.coffer.description",
+                "with": [
+                  {
+                    "translate": "item.fathoms.sunken_key",
+                    "color": "#d9bfb8",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "caliginous_coffer"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:coffer",
+            "minecraft:custom_model_data": {
+              "strings": [
+                "caliginous"
+              ]
+            },
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "minecraft:container": [
+              {
+                "slot": 0,
+                "item": {
+                  "id": "minecraft:stone",
+                  "components": {
+                    "minecraft:custom_data": {
+                      "thallium": {
+                        "block": {
+                          "id": "coffer",
+                          "variant": "caliginous"
+                        }
+                      },
+                      "fathoms": {
+                        "block": {
+                          "coffer": {
+                            "common_loot_table": "fathoms:coffer/caliginous/common",
+                            "unique_loot_table": "fathoms:coffer/caliginous/unique"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "minecraft:tooltip_display": {
+              "hidden_components": [
+                "minecraft:container"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

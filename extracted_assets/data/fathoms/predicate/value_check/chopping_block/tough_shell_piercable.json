@@ -1,0 +1,29 @@
+{
+  "condition": "minecraft:any_of",
+  "terms": [
+    {
+      "condition": "minecraft:value_check",
+      "value": {
+        "type": "minecraft:score",
+        "target": {
+          "type": "minecraft:fixed",
+          "name": "#fathoms.should_cut_fish"
+        },
+        "score": "fathoms.dummy"
+      },
+      "range": 3
+    },
+    {
+      "condition": "minecraft:value_check",
+      "value": {
+        "type": "minecraft:score",
+        "target": {
+          "type": "minecraft:fixed",
+          "name": "#fathoms.used_ornate_cleaver"
+        },
+        "score": "fathoms.dummy"
+      },
+      "range": 1
+    }
+  ]
+}

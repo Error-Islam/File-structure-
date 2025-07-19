@@ -1,0 +1,2 @@
+scoreboard players set @s fathoms.ritual.charm_of_butchery.duration 11
+execute unless score #fathoms.ritual_amplifier fathoms.dummy <= @s fathoms.ritual.charm_of_butchery.amplifier run scoreboard players operation @s fathoms.ritual.charm_of_butchery.amplifier = #fathoms.ritual_amplifier fathoms.dummy

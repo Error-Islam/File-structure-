@@ -1,0 +1,150 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.ghost_shrimp"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+			        "",
+              [
+                {
+                  "translate": "item.fathoms.fish.essence.aberration.symbol",
+                  "color": "white",
+                  "font": "fathoms:essence",
+                  "italic": false
+                },
+                {
+                  "translate": "item.fathoms.fish.essence.aberration.name",
+                  "color": "red",
+                  "font": "minecraft:default",
+                  "italic": false
+                }
+              ],
+			        "",
+              {
+                "translate": "item.modifiers.hand",
+                "color": "gray",
+                "italic": false
+              },
+              [
+                {
+                  "text": " 50% ",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.fathoms.bait_consumption_chance",
+                  "color": "dark_aqua",
+                  "italic": false
+                }
+              ],
+              [
+                {
+                  "text": " +0.5 ",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.fathoms.aberration_chance",
+                  "color": "dark_aqua",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "attribute.fathoms.invert_set",
+                "color": "dark_aqua",
+                "italic": false,
+                "with": [
+                  {
+                    "translate": "item.fathoms.fish.essence.solstice.name",
+                    "color": "#fcdf7a",
+                    "italic": false
+                  },
+                  {
+                    "translate": "item.fathoms.fish.essence.eclipse.name",
+                    "color": "#e2bfff",
+                    "italic": false
+                  }
+                ]
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "ghost_shrimp",
+				"reel_effect": "aberration",
+				"bait": {
+				  "sound": "fathoms:item.fishing_rod.cast.bait",
+				  "consumption_chance": 0.5
+				},
+                "fish": {
+                  "essences": [
+                    "aberration"
+                  ]
+                }
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:fish/aberration/ghost_shrimp",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "minecraft:consumable": {
+              "consume_seconds": 0.8,
+              "sound": {
+                "sound_id": "fathoms:entity.generic.eat.crunch",
+                "range": 1
+              },
+              "on_consume_effects": [
+                {
+                  "type": "minecraft:apply_effects",
+                  "effects": [
+                    {
+                      "id": "minecraft:wither",
+                      "duration": 100,
+                      "amplifier": 4
+                    }
+                  ]
+                }
+              ]
+            },
+            "minecraft:food": {
+              "nutrition": 1,
+              "saturation": 1,
+              "can_always_eat": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

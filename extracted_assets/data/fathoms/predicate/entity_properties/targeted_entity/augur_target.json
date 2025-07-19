@@ -1,0 +1,33 @@
+{
+  "condition": "minecraft:any_of",
+  "terms": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "targeted_entity": {
+          "location": {
+            "fluid": {
+              "fluids": "#minecraft:water"
+            }
+          },
+          "distance": {
+            "absolute": {
+              "min": 0,
+              "max": 4
+            }
+          }
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_scores",
+      "entity": "this",
+      "scores": {
+        "fathoms.entity": {
+          "min": 60
+        }
+      }
+    }
+  ]
+}

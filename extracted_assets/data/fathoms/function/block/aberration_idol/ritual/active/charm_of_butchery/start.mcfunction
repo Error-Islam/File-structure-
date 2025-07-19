@@ -1,0 +1,2 @@
+execute store result score #fathoms.ritual_amplifier fathoms.dummy run data get entity @s data.fathoms.ritual.amplifier
+execute as @a[distance=..32] run function fathoms:block/aberration_idol/ritual/active/charm_of_butchery/as_player

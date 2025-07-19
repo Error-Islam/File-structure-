@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/ornate_moondial",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/ornate_tool/cleaver",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "fathoms:items/futile_pendant",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:trident",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

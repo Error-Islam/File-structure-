@@ -1,0 +1,67 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:warped_fungus_on_a_stick"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.sunken_scrawl"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "item.fathoms.sunken_scrawl.description",
+                "color": "gray",
+                "italic": false,
+                "with": [
+                  {
+                    "keybind": "key.use"
+                  }
+                ]
+              },
+			  ""
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "sunken_scrawl",
+				"state": "front"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:sunken_scrawl",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "!minecraft:max_damage": {}
+          }
+        }
+      ]
+    }
+  ]
+}

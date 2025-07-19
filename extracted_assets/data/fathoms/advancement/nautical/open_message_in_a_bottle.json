@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:poisonous_potato",
+      "components": {
+        "minecraft:item_model": "fathoms:message_in_a_bottle"
+      }
+    },
+    "title": {
+      "translate": "advancements.fathoms.nautical.open_message_in_a_bottle.title"
+    },
+    "description": [
+      {
+        "translate": "advancements.fathoms.nautical.open_message_in_a_bottle.description"
+      },
+	  "\n\n",
+	  [
+	    {
+          "text": "0 ",
+		  "color": "white",
+		  "font": "fathoms:icon"
+        },
+        {
+          "translate": "ui.fathoms.title",
+          "color": "white",
+		  "font": "fathoms:tooltip"
+        }
+	  ]
+    ],
+    "frame": "task"
+  },
+  "parent": "fathoms:nautical/root",
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

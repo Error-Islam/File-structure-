@@ -1,0 +1,82 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.bejeweled_magnet"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+			  "",
+              {
+                "translate": "item.modifiers.hand",
+                "color": "gray",
+                "italic": false
+              },
+              [
+                {
+                  "text": " 10% ",
+                  "color": "dark_aqua",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.fathoms.bait_consumption_chance",
+                  "color": "dark_aqua",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "attribute.fathoms.allows_minerals",
+                "color": "dark_aqua",
+                "italic": false
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "bejeweled_magnet",
+				"bait": {
+				  "sound": "fathoms:item.fishing_rod.cast.magnet",
+				  "consumption_chance": 0.1
+				}
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:bait/bejeweled_magnet",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "!minecraft:consumable": {}
+          }
+        }
+      ]
+    }
+  ]
+}
