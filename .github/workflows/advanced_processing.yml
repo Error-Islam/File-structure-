@@ -1,11 +1,11 @@
-name: Advanced ZIP Processing & Content Generation
+name: 📁 🪴
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'config.yml'
-      - 'config-1.yml'
+      - 'unzip-config.yml'
 
 jobs:
   process-files:
@@ -25,20 +25,40 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🔍 Validate configs
+      - name: ⚙️ Auto-configure setup
         run: |
-          [ -f config-1.yml ] || { echo "❌ Missing config-1.yml"; exit 1; }
-          [ -f config.yml ] || { echo "❌ Missing config.yml"; exit 1; }
-          grep -qE '^\s*-' config-1.yml || { echo "❌ No ZIPs in config-1.yml"; exit 1; }
-          grep -qE '^\s*folders:' config.yml || { echo "❌ No folders in config.yml"; exit 1; }
+          # Create unzip-config.yml if missing
+          if [ ! -f unzip-config.yml ]; then
+            echo "unzip:" > unzip-config.yml
+            echo "  - \"Fathoms.zip\"" >> unzip-config.yml
+            echo "🛠️ Created unzip-config.yml with default settings"
+          fi
+
+          # Create config.yml if missing
+          if [ ! -f config.yml ]; then
+            echo "folders:" > config.yml
+            echo "  - \"Fathoms/**\"" >> config.yml
+            echo "🛠️ Created config.yml with default settings"
+          fi
+
+      - name: 🔍 Validate configurations
+        run: |
+          if ! grep -qE '^\s*unzip:' unzip-config.yml; then
+            echo "::error::Missing 'unzip' key in unzip-config.yml"
+            exit 1
+          fi
+          if ! grep -qE '^\s*folders:' config.yml; then
+            echo "::error::Missing 'folders' key in config.yml"
+            exit 1
+          fi
 
       - name: 📦 Smart ZIP extraction
         run: |
           mkdir -p extracted_assets
-          grep -E '^\s*-' config-1.yml | sed 's/^[[:space:]]*-\s*//;s/"//g' | while read -r zip; do
+          grep -E '^\s*-\s*"' unzip-config.yml | sed 's/^[[:space:]]*-\s*"//;s/"$//' | while read -r zip; do
             if [ ! -f "$zip" ]; then
-              echo "::error::ZIP missing: $zip"
-              exit 1
+              echo "::warning::ZIP file missing: $zip (skipping)"
+              continue
             fi
             echo "🔓 Extracting: $zip"
             unzip -q -n "$zip" -d extracted_assets/
@@ -59,9 +79,9 @@ jobs:
 
             // 1. Combine all files into data.txt
             let combinedContent = '';
-            const files = await glob('extracted_assets/**/*', { nodir: true });
+            const allFiles = await glob('extracted_assets/**/*', { nodir: true });
             
-            files.forEach(file => {
+            allFiles.forEach(file => {
               try {
                 const content = fs.readFileSync(file, 'utf-8');
                 const relativePath = path.relative('extracted_assets', file);
@@ -72,7 +92,7 @@ jobs:
             });
 
             fs.writeFileSync('data.txt', combinedContent);
-            console.log(`📝 Combined ${files.length} files into data.txt`);
+            core.info(`📝 Combined ${allFiles.length} files into data.txt`);
 
             // 2. Generate individual summaries
             const config = yaml.load(fs.readFileSync('config.yml', 'utf8'));
@@ -82,14 +102,14 @@ jobs:
 
             let generatedCount = 0;
             for (const pattern of patterns) {
-              const matches = await glob(`extracted_assets/${pattern}`, { nodir: true });
+              const matchedFiles = await glob(`extracted_assets/${pattern}`, { nodir: true });
               
-              for (const file of matches) {
+              for (const file of matchedFiles) {
                 try {
                   const content = fs.readFileSync(file, 'utf-8');
                   const relativePath = path.relative('extracted_assets', file);
                   const safeName = relativePath.replace(/\//g, '꞉').replace(/\\/g, '꞉').replace(/\s+/g, '🝗');
-                  const summaryFile = `${summaryDir}/${safeName}_${{ env.TIMESTAMP }}.txt`;
+                  const summaryFile = `${summaryDir}/${safeName}_${process.env.TIMESTAMP}.txt`;
                   
                   fs.writeFileSync(summaryFile, `🔖 ${relativePath}\n\n${content}`);
                   generatedCount++;
@@ -98,7 +118,7 @@ jobs:
                 }
               }
             }
-            console.log(`✨ Generated ${generatedCount} summaries`);
+            core.info(`✨ Generated ${generatedCount} summaries`);
             core.setOutput('changes', generatedCount > 0 ? 'true' : 'false');
 
       - name: 🧹 Cleanup assets
@@ -110,7 +130,7 @@ jobs:
         run: |
           git config user.name "Cognitive Processor"
           git config user.email "ai-assistant@users.noreply.github.com"
-          git add data.txt generated/
+          git add data.txt generated/ config.yml unzip-config.yml
           git commit -m "🧠 AI-Processed Content v${{ steps.timestamp.outputs.TIMESTAMP }}"
           git push
 
@@ -119,6 +139,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           title: "AI-Generated Content Update v${{ steps.timestamp.outputs.TIMESTAMP }}"
-          body: "Automated content processing:\n- Combined files: data.txt\n- Individual summaries: generated/"
+          body: "Automated content processing:\n- Combined files: data.txt\n- Individual summaries: generated/\n- Config files updated if missing"
           branch: "content-update-${{ steps.timestamp.outputs.TIMESTAMP }}"
           delete-branch: true
