@@ -65,10 +65,14 @@ for zip_file in zip_files:
     shutil.rmtree(temp_dir)
 EOF
 
-    - name: Commit data.txt
+    - name: Commit data.txt only if changed
       run: |
         git config user.name "Zip Summarizer Bot"
         git config user.email "bot@example.com"
-        git add data.txt
-        git commit -m "Add/update combined data.txt from unzipped zip(s)" || echo "Nothing to commit"
-        git push
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes to commit."
+        else
+          git add data.txt
+          git commit -m "Add/update combined data.txt from unzipped zip(s)"
+          git push
+        fi
