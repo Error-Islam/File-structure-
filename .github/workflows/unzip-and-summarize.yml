@@ -1,68 +1,48 @@
-name: Unzip and Aggregate Files
+name: Unzip and Summarize One Zip File
+
 on:
-  workflow_dispatch:        # manual trigger (Run workflow button):contentReference[oaicite:3]{index=3}
+  workflow_dispatch:
 
 jobs:
-  unzip_and_aggregate:
+  unzip_and_summarize:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0          # get full history for accurate diff:contentReference[oaicite:4]{index=4}
-          persist-credentials: true  # allow pushing via GITHUB_TOKEN:contentReference[oaicite:5]{index=5}
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python for YAML parsing
-        uses: actions/setup-python@v4
+    - name: Install unzip
+      run: sudo apt-get install -y unzip
 
-      - name: Read config.yml and process ZIPs
-        run: |
-          pip install PyYAML
+    - name: Load config file
+      id: config
+      run: |
+        echo "unzips=$(yq eval '.unzip[]' config.yml | jq -R -s -c 'split("\n") | map(select(length > 0))')" >> "$GITHUB_ENV"
 
-          # Read the list of ZIP files from config.yml
-          files=$(python - <<'EOF'
-import yaml
-config = yaml.safe_load(open('config.yml'))
-for z in config.get('unzip', []):
-    print(z)
-EOF
-          )
-          # Split into array, one entry per line
-          IFS=$'\n' read -r -d '' -a zips <<< "$files"
-          
-          # Prepare/clear the data.txt output
-          echo "" > data.txt
+    - name: Unzip files
+      run: |
+        for file in $(echo $unzips | jq -r '.[]'); do
+          folder="${file%.zip}"
+          mkdir -p "$folder"
+          unzip -o "$file" -d "$folder"
+        done
 
-          # Loop over each ZIP file
-          for zipfile in "${zips[@]}"; do
-            # Compute base folder name (remove .zip, safely handle spaces)
-            base=$(basename "$zipfile" .zip)
-            # Remove any previous extraction and recreate the folder
-            rm -rf "$base"
-            mkdir -p "$base"
-            # Unzip into the folder (quiet mode); quotes handle special characters
-            unzip -q "$zipfile" -d "$base"
-
-            # Append each file’s path and contents to data.txt
-            # (find handles spaces with IFS= read -r)
-            find "$base" -type f -print0 | while IFS= read -r -d '' file; do
-              echo "===== File: $file =====" >> data.txt
-              cat "$file" >> data.txt
-              echo "" >> data.txt
-            done
+    - name: Generate data.txt
+      run: |
+        echo "" > data.txt
+        for file in $(echo $unzips | jq -r '.[]'); do
+          folder="${file%.zip}"
+          find "$folder" -type f | while read filepath; do
+            echo "===== File: $filepath =====" >> data.txt
+            cat "$filepath" >> data.txt
+            echo -e "\n" >> data.txt
           done
+        done
 
-          # Configure git for committing
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Stage changes (data.txt and any new/extracted folders)
-          git add .
-          
-          # If there are changes, commit and push
-          if ! git diff --cached --quiet; then
-            git commit -m "Update data.txt and unzipped contents"
-            git push
-          else
-            echo "No changes to commit."
-          fi
+    - name: Commit and push results
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@users.noreply.github.com"
+        git add data.txt */ || true
+        git diff --cached --quiet || git commit -m "Add data.txt and unzipped folders"
+        git push
