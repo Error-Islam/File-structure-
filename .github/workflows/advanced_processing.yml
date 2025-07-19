@@ -1,4 +1,4 @@
-name: 📁 🪴
+name: Advanced ZIP Processing & Content Generation
 
 on:
   workflow_dispatch:
@@ -75,11 +75,11 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const yaml = require('js-yaml');
-            const { glob } = require('glob');
+            const globModule = require('glob');
 
             // 1. Combine all files into data.txt
             let combinedContent = '';
-            const allFiles = await glob('extracted_assets/**/*', { nodir: true });
+            const allFiles = await globModule.glob('extracted_assets/**/*', { nodir: true });
             
             allFiles.forEach(file => {
               try {
@@ -102,7 +102,7 @@ jobs:
 
             let generatedCount = 0;
             for (const pattern of patterns) {
-              const matchedFiles = await glob(`extracted_assets/${pattern}`, { nodir: true });
+              const matchedFiles = await globModule.glob(`extracted_assets/${pattern}`, { nodir: true });
               
               for (const file of matchedFiles) {
                 try {
