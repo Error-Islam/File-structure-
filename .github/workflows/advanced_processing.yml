@@ -27,14 +27,11 @@ jobs:
 
       - name: ⚙️ Auto-configure setup
         run: |
-          # Create unzip-config.yml if missing
           if [ ! -f unzip-config.yml ]; then
             echo "unzip:" > unzip-config.yml
             echo "  - \"Fathoms.zip\"" >> unzip-config.yml
             echo "🛠️ Created unzip-config.yml with default settings"
           fi
-
-          # Create config.yml if missing
           if [ ! -f config.yml ]; then
             echo "folders:" > config.yml
             echo "  - \"Fathoms/**\"" >> config.yml
@@ -78,9 +75,9 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const yaml = require('js-yaml');
-            const globLib = require('glob'); // ✅ FIXED
+            const globLib = require('glob');
+            const core = require('@actions/core');
 
-            // 1. Combine all files into data.txt
             let combinedContent = '';
             const allFiles = globLib.sync('extracted_assets/**/*', { nodir: true });
 
@@ -97,7 +94,6 @@ jobs:
             fs.writeFileSync('data.txt', combinedContent);
             core.info(`📝 Combined ${allFiles.length} files into data.txt`);
 
-            // 2. Generate individual summaries
             const config = yaml.load(fs.readFileSync('config.yml', 'utf8'));
             const patterns = config.folders || [];
             const summaryDir = 'generated';
@@ -111,7 +107,10 @@ jobs:
                 try {
                   const content = fs.readFileSync(file, 'utf-8');
                   const relativePath = path.relative('extracted_assets', file);
-                  const safeName = relativePath.replace(/\//g, '꞉').replace(/\\/g, '꞉').replace(/\s+/g, '🝗');
+                  const safeName = relativePath
+                    .replace(/\//g, '꞉')
+                    .replace(/\\/g, '꞉')
+                    .replace(/\s+/g, '🝗');
                   const summaryFile = `${summaryDir}/${safeName}_${process.env.TIMESTAMP}.txt`;
 
                   fs.writeFileSync(summaryFile, `🔖 ${relativePath}\n\n${content}`);
@@ -143,7 +142,10 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           title: "AI-Generated Content Update v${{ steps.timestamp.outputs.TIMESTAMP }}"
-          body: "Automated content processing:\n- Combined files: data.txt\n- Individual summaries: generated/\n- Config files updated if missing"
+          body: |
+            Automated content processing:
+            - 📄 Combined files: `data.txt`
+            - 🧾 Individual summaries: `generated/`
+            - ⚙️ Config files updated if missing
           branch: "content-update-${{ steps.timestamp.outputs.TIMESTAMP }}"
           delete-branch: true
-          
