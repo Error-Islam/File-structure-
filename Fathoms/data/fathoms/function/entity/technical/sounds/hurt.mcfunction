@@ -1,1 +1,0 @@
-execute if entity @s[tag=fathoms.entity.augur] run return run playsound fathoms:entity.augur.hurt hostile @a[distance=..16]

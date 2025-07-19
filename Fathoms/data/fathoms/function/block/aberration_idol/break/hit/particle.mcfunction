@@ -1,1 +1,0 @@
-$particle minecraft:item{item:{id:"minecraft:poisonous_potato",components:{"minecraft:item_model":"fathoms:aberration_idol","minecraft:custom_model_data":{strings:[$(particle)]}}}} ~ ~ ~ 0.25 0.15 0.25 0.05 3

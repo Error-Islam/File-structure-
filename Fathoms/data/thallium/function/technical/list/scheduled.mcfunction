@@ -1,1 +1,0 @@
-execute as @a run function thallium:technical/list/main

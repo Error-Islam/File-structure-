@@ -1,2 +1,0 @@
-execute if score #fathoms.ritual_success fathoms.dummy matches -1 run title @s actionbar {"translate":"ui.fathoms.ritual.error.no_fish",with:[{"translate":"item.fathoms.chopping_block","color":"yellow"},{"translate":"item.fathoms.sacrificial_knife","color":"yellow"}]}
-execute if score #fathoms.ritual_success fathoms.dummy matches -2 run title @s actionbar {"translate":"ui.fathoms.ritual.error.no_tell_tale_heart",with:[{"translate":"item.fathoms.tell_tale_heart","color":"yellow"}]}

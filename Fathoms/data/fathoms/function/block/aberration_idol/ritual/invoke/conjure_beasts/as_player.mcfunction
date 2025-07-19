@@ -1,1 +1,0 @@
-execute if score #fathoms.essence.aberration fathoms.dummy matches 4 run advancement grant @s only fathoms:nautical/all_max_level_rituals conjure_beasts

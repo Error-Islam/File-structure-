@@ -1,1 +1,0 @@
-playsound fathoms:item.fish.waxed block @a[distance=..8] ~ ~ ~

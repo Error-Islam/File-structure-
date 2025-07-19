@@ -1,1 +1,0 @@
-function #thallium:entity/ten_second_clock

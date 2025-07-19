@@ -1,1 +1,0 @@
-$damage @s 2 fathoms:augur by @n[distance=..6,type=minecraft:drowned,tag=fathoms.entity.augur,nbt={UUID:$(uuid)}]

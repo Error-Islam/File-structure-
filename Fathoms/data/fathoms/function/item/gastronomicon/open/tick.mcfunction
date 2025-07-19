@@ -1,4 +1,0 @@
-execute unless entity @s[tag=fathoms.entity.player.gastronomicon_input_held_down] if predicate fathoms:entity_properties/gastronomicon_inputs/any run function fathoms:item/gastronomicon/open/input
-execute if entity @s[tag=fathoms.entity.player.gastronomicon_input_held_down] unless predicate fathoms:entity_properties/gastronomicon_inputs/any run tag @s remove fathoms.entity.player.gastronomicon_input_held_down
-
-execute unless items entity @s weapon.mainhand minecraft:warped_fungus_on_a_stick[minecraft:custom_data~{fathoms:{id:"gastronomicon"}}] run function fathoms:item/gastronomicon/open/force_close/start

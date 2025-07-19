@@ -1,1 +1,0 @@
-$particle minecraft:item{item:{id:"minecraft:poisonous_potato",components:{"minecraft:item_model":"fathoms:coffer","minecraft:custom_model_data":{strings:[$(particle)]}}}} ~ ~ ~ 0.3 0.2 0.3 0.1 10

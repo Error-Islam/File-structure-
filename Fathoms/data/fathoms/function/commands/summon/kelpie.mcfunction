@@ -1,1 +1,0 @@
-execute summon minecraft:horse run function fathoms:entity/kelpie/transform/summon

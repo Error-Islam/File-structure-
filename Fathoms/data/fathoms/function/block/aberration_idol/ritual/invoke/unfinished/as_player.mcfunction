@@ -1,1 +1,0 @@
-tellraw @s [{"text":"0 ","font":"fathoms:icon"},{"text":"This ritual is not finished yet. It will be ready for the public release. Sorry!","color":"#ff4d24","font":"thallium:5"}]

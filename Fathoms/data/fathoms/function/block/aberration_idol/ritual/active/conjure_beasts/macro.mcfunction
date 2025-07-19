@@ -1,1 +1,0 @@
-$execute positioned ~$(x).5 ~ ~$(z).5 positioned over motion_blocking_no_leaves if block ~ ~-1 ~ #fathoms:conjure_beasts_valid_spawn run function fathoms:block/aberration_idol/ritual/active/conjure_beasts/wave

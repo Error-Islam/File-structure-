@@ -1,2 +1,0 @@
-execute if data entity @s interaction positioned ~ ~0.5 ~ run function fathoms:block/chopping_block/interaction/right_click
-execute if data entity @s attack positioned ~ ~0.5 ~ run function fathoms:block/chopping_block/interaction/left_click

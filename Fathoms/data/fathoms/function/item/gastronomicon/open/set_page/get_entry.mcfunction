@@ -1,1 +1,0 @@
-$data modify storage fathoms:temp root set from storage fathoms:gastronomicon entries[$(selected_entry)]

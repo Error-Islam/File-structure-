@@ -1,3 +1,0 @@
-$execute positioned ~ ~-$(value) ~ unless block ~ ~ ~ #thallium:not_solid run function fathoms:block/dredging_apparatus/moving/lowering/hit_bottom
-$execute positioned ~ ~-$(value) ~ positioned ~ ~0.5 ~ if predicate thallium:location_check/fluid/water positioned ~ ~0.5 ~ unless predicate thallium:location_check/fluid/water run function fathoms:block/dredging_apparatus/moving/lowering/enter_water
-$execute if score #fathoms.custom_model_data fathoms.dummy matches 80.. positioned ~ ~-$(value) ~ run playsound fathoms:block.dredging_apparatus.lower block @a[distance=..8] ~ ~ ~ 0.5

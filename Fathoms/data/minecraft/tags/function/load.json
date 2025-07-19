@@ -1,9 +1,0 @@
-{
-  "values": [
-    "thallium:technical/load",
-    "thallium:technical/second_clock",
-    "thallium:technical/ten_second_clock",
-    "fathoms:technical/load",
-    "fathoms:item/gastronomicon/encode"
-  ]
-}

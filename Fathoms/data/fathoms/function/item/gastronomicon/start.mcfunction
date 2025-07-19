@@ -1,2 +1,0 @@
-execute unless entity @s[tag=fathoms.entity.player.gastronomicon_open] run return run function fathoms:item/gastronomicon/set_state/open
-execute if entity @s[tag=fathoms.entity.player.gastronomicon_open] run return run function fathoms:item/gastronomicon/set_state/closed

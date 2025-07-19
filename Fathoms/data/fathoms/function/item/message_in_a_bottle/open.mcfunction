@@ -1,1 +1,0 @@
-advancement grant @s only fathoms:nautical/open_message_in_a_bottle

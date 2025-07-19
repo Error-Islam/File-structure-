@@ -1,6 +1,0 @@
-execute if data block ~ ~ ~ {Items:[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{id:"chopping_block"}}}}}]} run function fathoms:block/chopping_block/place/start
-execute if data block ~ ~ ~ {Items:[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{id:"aberration_idol"}}}}}]} run function fathoms:block/aberration_idol/place/start
-execute if data block ~ ~ ~ {Items:[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{id:"nautilus_siphon"}}}}}]} run function fathoms:block/nautilus_siphon/place/start
-execute if data block ~ ~ ~ {Items:[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{id:"dredging_apparatus"}}}}}]} run function fathoms:block/dredging_apparatus/place/start
-execute if data block ~ ~ ~ {Items:[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{id:"pylon"}}}}}]} run function fathoms:block/pylon/place/start
-execute if data block ~ ~ ~ {Items:[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{id:"coffer"}}}}}]} run function fathoms:block/coffer/place/start

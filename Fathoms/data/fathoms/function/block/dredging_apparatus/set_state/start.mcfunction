@@ -1,3 +1,0 @@
-execute if entity @s[tag=fathoms.block.dredging_apparatus.has_item,tag=fathoms.block.dredging_apparatus.top] run return run function fathoms:block/dredging_apparatus/set_state/empty
-execute unless entity @s[tag=fathoms.block.dredging_apparatus.lowering] unless entity @s[tag=fathoms.block.dredging_apparatus.bottom] run return run function fathoms:block/dredging_apparatus/moving/lowering/start
-execute unless entity @s[tag=fathoms.block.dredging_apparatus.reeling] unless entity @s[tag=fathoms.block.dredging_apparatus.top] run return run function fathoms:block/dredging_apparatus/moving/reeling/start
