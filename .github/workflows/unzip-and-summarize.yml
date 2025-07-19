@@ -17,7 +17,7 @@ jobs:
           # Create a temp directory for extraction
           mkdir -p temp_unzip
           # Read each zip filename from config.yml
-          grep -E '^\\s*-' config.yml | sed 's/^[[:space:]]*-\\s*//;s/"//g' | while IFS= read -r zipfile; do
+          grep -E '^\\s*-' config-1.yml | sed 's/^[[:space:]]*-\\s*//;s/"//g' | while IFS= read -r zipfile; do
             echo "Unzipping $zipfile ..."
             unzip "$zipfile" -d temp_unzip
           done
