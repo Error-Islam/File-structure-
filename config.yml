@@ -1,6 +1,2 @@
-folders:
-  - data/**
-  - resources/**
-
 unzip:
-  - "archives/Fathom's.zip"
+  - "Fathom's.zip"
