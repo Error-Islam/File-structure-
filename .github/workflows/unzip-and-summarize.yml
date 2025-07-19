@@ -1,44 +1,56 @@
-name: Unzip and Summarize Zip Contents
-
+name: Unzip and Summarize
 on:
-  workflow_dispatch:
-
+  workflow_dispatch:        # Manual trigger
 jobs:
-  unzip-and-combine:
+  extract_and_summarize:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # allows pushing changes with GITHUB_TOKEN
+      contents: write      # Allow pushing changes back to the repo:contentReference[oaicite:8]{index=8}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Parse config and unzip archives
+      - name: Read config.yml and unzip files
+        shell: bash
         run: |
-          # Create a temp directory for extraction
-          mkdir -p temp_unzip
-          # Read each zip filename from config.yml
-          grep -E '^\\s*-' config.yml | sed 's/^[[:space:]]*-\\s*//;s/"//g' | while IFS= read -r zipfile; do
-            echo "Unzipping $zipfile ..."
-            unzip "$zipfile" -d temp_unzip
+          # Read each zip file from config.yml
+          mapfile -t files < <(grep -oP '(?<=- ")(.*?)(?=")' config.yml)
+          folders=()
+          for file in "${files[@]}"; do
+            # Derive folder name by removing .zip
+            folder=$(basename "$file" .zip)
+            folders+=("$folder")
+            mkdir -p "$folder"
+            echo "Unzipping '$file' into folder '$folder/'"
+            unzip -q "$file" -d "$folder"
           done
 
-      - name: Combine file contents
+      - name: Create data.txt summary of extracted files
+        shell: bash
         run: |
-          # Create or clear data.txt
-          echo > data.txt
-          # For every file in temp_unzip, append its contents to data.txt
-          find temp_unzip -type f | while IFS= read -r filepath; do
-            # Use relative path for display
-            relpath="${filepath#temp_unzip/}"
-            echo "===== File: $relpath =====" >> data.txt
-            cat "$filepath" >> data.txt
-            echo >> data.txt
+          echo "" > data.txt
+          for folder in "${folders[@]}"; do
+            # List each file path and its contents
+            find "$folder" -type f | while read filepath; do
+              echo "${filepath}:" >> data.txt
+              cat "$filepath" >> data.txt
+              echo "" >> data.txt
+            done
           done
+          echo "Summary written to data.txt."
 
-      - name: Commit and push data.txt
+      - name: Commit and push changes
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-          git add data.txt
-          git commit -m "Add unzipped data summary"
-          git push origin HEAD:main
+          # Only commit if there are changes (e.g. new files or updated data.txt)
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Add unzipped folders and update data.txt"
+            git push
+          else
+            echo "No new changes to commit."
+          fi
