@@ -1,0 +1,28 @@
+{
+    "condition": "minecraft:all_of",
+    "terms": [
+      {
+        "condition": "minecraft:location_check",
+        "offsetY": 1,
+        "predicate": {
+          "fluid": {
+            "fluids": "#minecraft:water"
+          }
+        }
+      },
+      {
+        "condition": "minecraft:entity_properties",
+        "entity": "this",
+        "predicate": {
+          "passenger": {
+            "type_specific": {
+              "type": "minecraft:player",
+              "input": {
+                "jump": true
+              }
+            }
+          }
+        }
+      }
+    ]
+  }

@@ -1,0 +1,55 @@
+{
+  "criteria": {
+    "enter": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "location": {
+            "biomes": "fathoms:ancient_reservoir",
+            "light": {
+              "light": {
+                "min": 1
+              }
+            },
+            "fluid": {
+              "fluids": "minecraft:empty"
+            }
+          },
+          "flags": {
+            "is_swimming": false,
+            "is_on_ground": true
+          }
+        }
+      }
+    },
+    "failsafe": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "location": {
+            "biomes": "fathoms:ancient_reservoir",
+            "fluid": {
+              "fluids": "minecraft:empty"
+            }
+          },
+          "flags": {
+            "is_swimming": false,
+            "is_on_ground": true
+          },
+          "effects": {
+            "minecraft:night_vision": {}
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "enter",
+      "failsafe"
+    ]
+  ],
+  "rewards": {
+    "function": "fathoms:entity/player/title_card/queue/ancient_reservoir"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "pack": {
+    "pack_format": 80,
+    "description": [
+      {
+        "text": "\ud83c\udfa3 Fathoms \ud83c\udfa3",
+        "color": "#3ba5c6"
+      },
+      {
+        "text": "\n"
+      },
+      {
+        "text": "By Lead",
+        "color": "#53ceda"
+      }
+    ]
+  },
+  "id": "fathoms"
+}

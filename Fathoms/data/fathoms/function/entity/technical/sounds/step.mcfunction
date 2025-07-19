@@ -1,0 +1,2 @@
+execute if entity @s[tag=fathoms.entity.kelpie,tag=!fathoms.entity.kelpie.dried] if predicate thallium:entity_properties/has_passenger run return run playsound minecraft:entity.skeleton_horse.gallop_water neutral @a[distance=..16]
+execute if entity @s[tag=fathoms.entity.kelpie.dried] if predicate thallium:entity_properties/has_passenger run return run playsound minecraft:entity.horse.gallop neutral @a[distance=..16]

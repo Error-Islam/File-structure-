@@ -1,0 +1,1 @@
+function thallium:technical/list/hook {namespace:"fathoms",pack_text:[{text:"0 ",color:"white",font:"fathoms:icon"},{translate:"ui.fathoms.title",color:"white",font:"fathoms:tooltip"}],version:"1.1.1",version_title:{translate:"ui.fathoms.update",color:"#a0e675",font:"thallium:5"}}

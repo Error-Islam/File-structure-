@@ -1,0 +1,46 @@
+[
+  {
+    "function": "minecraft:set_item",
+    "item": "minecraft:netherite_hoe"
+  },
+  {
+    "function": "minecraft:set_components",
+    "components": {
+      "minecraft:item_name": {
+        "translate": "item.fathoms.netherite_ornate_hoe"
+      },
+      "minecraft:lore": [
+        [
+          {
+            "text": "0 ",
+            "color": "white",
+            "font": "fathoms:icon",
+            "italic": false
+          },
+          {
+            "translate": "ui.fathoms.title",
+            "color": "white",
+            "font": "fathoms:tooltip",
+            "italic": false
+          }
+        ]
+      ],
+      "minecraft:custom_data": {
+        "fathoms": {
+          "id": "netherite_ornate_hoe"
+        }
+      },
+      "minecraft:item_model": "fathoms:ornate_tool/hoe",
+      "minecraft:custom_model_data": {
+        "strings": [
+          "netherite"
+        ]
+      },
+      "minecraft:tooltip_style": "fathoms:fathoms",
+      "minecraft:rarity": "rare",
+      "minecraft:repairable": {
+        "items": "minecraft:netherite_ingot"
+      }
+    }
+  }
+]

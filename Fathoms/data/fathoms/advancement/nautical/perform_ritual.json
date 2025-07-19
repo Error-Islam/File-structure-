@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:poisonous_potato",
+      "components": {
+        "minecraft:item_model": "fathoms:aberration_idol",
+        "minecraft:custom_model_data": {
+          "strings": [
+            "rugged"
+          ]
+        }
+      }
+    },
+    "title": {
+      "translate": "advancements.fathoms.nautical.perform_ritual.title"
+    },
+    "description": [
+      {
+        "translate": "advancements.fathoms.nautical.perform_ritual.description"
+      },
+	  "\n\n",
+	  [
+	    {
+          "text": "0 ",
+		  "color": "white",
+		  "font": "fathoms:icon"
+        },
+        {
+          "translate": "ui.fathoms.title",
+          "color": "white",
+		  "font": "fathoms:tooltip"
+        }
+	  ]
+    ],
+    "frame": "task"
+  },
+  "parent": "fathoms:nautical/dredging_apparatus",
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

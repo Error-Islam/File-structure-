@@ -1,0 +1,134 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:poisonous_potato",
+      "components": {
+        "minecraft:item_model": "fathoms:ornate_tool/pickaxe",
+        "minecraft:custom_model_data": {
+          "strings": [
+            "netherite"
+          ]
+        }
+      }
+    },
+    "title": {
+      "translate": "advancements.fathoms.nautical.upgrade_ornate_tool.title"
+    },
+    "description": [
+      {
+        "translate": "advancements.fathoms.nautical.upgrade_ornate_tool.description"
+      },
+	  "\n\n",
+	  [
+	    {
+          "text": "0 ",
+		  "color": "white",
+		  "font": "fathoms:icon"
+        },
+        {
+          "translate": "ui.fathoms.title",
+          "color": "white",
+		  "font": "fathoms:tooltip"
+        }
+	  ]
+    ],
+    "frame": "challenge"
+  },
+  "parent": "fathoms:nautical/open_coffer",
+  "criteria": {
+    "pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_pickaxe",
+            "predicates": {
+              "minecraft:custom_data": {
+                "fathoms": {
+                  "id": "netherite_ornate_pickaxe"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { 
+            "items": "minecraft:netherite_axe",
+            "predicates": {
+              "minecraft:custom_data": {
+                "fathoms": {
+                  "id": "netherite_ornate_axe"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_shovel",
+            "predicates": {
+              "minecraft:custom_data": {
+                "fathoms": {
+                  "id": "netherite_ornate_shovel"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_hoe",
+            "predicates": {
+              "minecraft:custom_data": {
+                "fathoms": {
+                  "id": "netherite_ornate_hoe"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "cleaver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_axe",
+            "predicates": {
+              "minecraft:custom_data": {
+                "fathoms": {
+                  "id": "netherite_ornate_cleaver"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pickaxe",
+      "axe",
+      "shovel",
+      "hoe",
+      "cleaver"
+    ]
+  ]
+}

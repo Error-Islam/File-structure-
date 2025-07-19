@@ -1,0 +1,21 @@
+{
+  "criteria": {
+    "aberration": {
+      "trigger": "minecraft:fishing_rod_hooked",
+      "conditions": {
+        "item": {
+          "predicates": {
+            "minecraft:custom_data": {
+              "fathoms": {
+                "reel_effect": "aberration"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "fathoms:entity/player/statistics/increment/aberration_caught"
+  }
+}

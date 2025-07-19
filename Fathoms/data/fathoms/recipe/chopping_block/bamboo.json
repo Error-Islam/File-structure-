@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_chopping_blocks",
+  "pattern": [
+    "   ",
+    "ppp",
+    "sss"
+  ],
+  "key": {
+    "p": [
+      "minecraft:bamboo_planks"
+    ],
+    "s": [
+      "minecraft:stripped_bamboo_block"
+    ]
+  },
+  "result": {
+    "id": "minecraft:furnace",
+    "components": {
+      "minecraft:item_name": {
+        "translate": "item.fathoms.bamboo_chopping_block"
+      },
+      "minecraft:lore": [
+        [
+          {
+            "text": "0 ",
+            "color": "white",
+            "font": "fathoms:icon",
+            "italic": false
+          },
+          {
+            "translate": "ui.fathoms.title",
+            "color": "white",
+            "font": "fathoms:tooltip",
+            "italic": false
+          }
+        ]
+      ],
+      "minecraft:custom_data": {
+        "fathoms": {
+          "id": "bamboo_chopping_block"
+        },
+        "smithed": {
+          "ignore": {
+            "functionality": true,
+            "crafting": true
+          }
+        }
+      },
+      "minecraft:item_model": "fathoms:chopping_block",
+      "minecraft:custom_model_data": {
+        "strings": [
+          "bamboo"
+        ]
+      },
+      "minecraft:tooltip_style": "fathoms:fathoms",
+      "minecraft:rarity": "common",
+      "!minecraft:consumable": {},
+      "minecraft:container": [
+        {
+          "slot": 0,
+          "item": {
+            "id": "minecraft:stone",
+            "components": {
+              "minecraft:custom_data": {
+                "thallium": {
+                  "block": {
+                    "id": "chopping_block",
+                    "variant": "bamboo",
+                    "vertical_offset": 0.125
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "minecraft:tooltip_display": {
+        "hidden_components": [
+          "minecraft:container"
+        ]
+      }
+    }
+  }
+}

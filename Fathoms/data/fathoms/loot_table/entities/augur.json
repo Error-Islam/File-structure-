@@ -1,0 +1,66 @@
+{
+    "type": "minecraft:entity",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:loot_table",
+            "value": "fathoms:items/tell_tale_heart",
+            "conditions": [
+              {
+                "condition": "minecraft:random_chance",
+                "chance": 0.1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:poisonous_potato",
+            "functions": [
+              {
+                "function": "minecraft:set_custom_data",
+                "tag": {
+                  "thallium": {
+                    "death": {
+                      "id": "augur",
+                      "sound": "fathoms:entity.augur.death",
+                      "sound_category": "hostile",
+                      "function": "empty",
+                      "xp": 5
+                    }
+                  }
+                }
+              },
+              {
+                "function": "minecraft:set_components",
+                "components": {
+                  "minecraft:item_model": "thallium:empty"
+                }
+              }
+            ],
+            "conditions": [
+              {
+                "condition": "minecraft:killed_by_player"
+              },
+              {
+                "condition": "minecraft:inverted",
+                "term": {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "type": "minecraft:wolf"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,2 @@
+execute if entity @s[tag=fathoms.block.dredging_apparatus.lowering] run return run function fathoms:block/dredging_apparatus/moving/lowering/tick
+execute if entity @s[tag=fathoms.block.dredging_apparatus.reeling] run return run function fathoms:block/dredging_apparatus/moving/reeling/tick

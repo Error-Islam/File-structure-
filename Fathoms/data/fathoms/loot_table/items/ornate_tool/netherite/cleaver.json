@@ -1,0 +1,155 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:netherite_axe"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.netherite_ornate_cleaver"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+			  "",
+              {
+                "translate": "item.modifiers.fathoms.cutting_fish",
+                "color": "gray",
+                "italic": false
+              },
+              [
+                {
+                  "text": " 20%",
+                  "color": "#a6d0b9",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.fathoms.double_chance",
+                  "color": "#a6d0b9",
+                  "italic": false
+                }
+              ],
+			  "",
+              {
+                "translate": "item.modifiers.mainhand",
+                "color": "gray",
+                "italic": false
+              },
+              [
+                {
+                  "text": " 9 ",
+                  "color": "dark_green",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.name.attack_damage",
+                  "color": "dark_green",
+                  "italic": false
+                }
+              ],
+              [
+                {
+                  "text": " 1 ",
+                  "color": "dark_green",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.name.attack_speed",
+                  "color": "dark_green",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "netherite_ornate_cleaver"
+              },
+              "valiance": {
+                "weapon": {
+                  "category": "orante_cleaver",
+                  "attack_function": "empty",
+                  "attack_sound": "valiance:item.cleaver.hit",
+                  "equip_sound": "valiance:item.cleaver.equip"
+                }
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:ornate_tool/cleaver",
+            "minecraft:custom_model_data": {
+              "strings": [
+                "netherite"
+              ]
+            },
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "rare",
+            "minecraft:attribute_modifiers": [
+              {
+                "type": "minecraft:attack_damage",
+                "id": "fathoms:item.netherite_ornate_cleaver.attack_damage",
+                "amount": 8,
+                "operation": "add_value",
+                "slot": "mainhand"
+              },
+              {
+                "type": "minecraft:attack_speed",
+                "id": "fathoms:item.netherite_ornate_cleaver.attack_speed",
+                "amount": -3,
+                "operation": "add_value",
+                "slot": "mainhand"
+              }
+            ],
+            "minecraft:tooltip_display": {
+              "hidden_components": [
+                "minecraft:attribute_modifiers"
+              ]
+            },
+            "minecraft:repairable": {
+              "items": "minecraft:netherite_ingot"
+            },
+            "minecraft:tool": {
+              "rules": [
+                {
+                  "blocks": "#minecraft:incorrect_for_diamond_tool",
+                  "correct_for_drops": false
+                },
+                {
+                  "blocks": "#minecraft:mineable/axe",
+                  "speed": 6
+                }
+              ]
+            },
+            "minecraft:weapon": {
+              "item_damage_per_attack": 2,
+              "disable_blocking_for_seconds": 2.5
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

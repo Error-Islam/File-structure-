@@ -1,0 +1,113 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:furnace"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.dredging_apparatus"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "item.fathoms.dredging_apparatus.description.1",
+                "with": [
+                  {
+                    "keybind": "key.use",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              },
+              "",
+              {
+                "translate": "item.fathoms.dredging_apparatus.description.2",
+                "with": [
+                  {
+                    "translate": "item.fathoms.dredging_apparatus.description.3",
+                    "color": "#a6d0b9",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "translate": "item.fathoms.dredging_apparatus.description.4",
+                "with": [
+                  {
+                    "translate": "item.fathoms.dredging_apparatus.description.5",
+                    "color": "#6287ee",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "dredging_apparatus"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:dredging_apparatus",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "common",
+            "!minecraft:consumable": {},
+            "minecraft:container": [
+              {
+                "slot": 0,
+                "item": {
+                  "id": "minecraft:stone",
+                  "components": {
+                    "minecraft:custom_data": {
+                      "thallium": {
+                        "block": {
+                          "id": "dredging_apparatus"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "minecraft:tooltip_display": {
+              "hidden_components": [
+                "minecraft:container"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "asset_id": "fathoms:floored",
+  "width": 2,
+  "height": 2,
+  "title": {
+    "translate": "painting.fathoms.floored.title"
+  },
+  "author": {
+    "translate": "contributor.lead"
+  }
+}

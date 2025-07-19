@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:poisonous_potato",
+      "components": {
+        "minecraft:item_model": "fathoms:tell_tale_heart"
+      }
+    },
+    "title": {
+      "translate": "advancements.fathoms.nautical.cut_aberration.title"
+    },
+    "description": [
+      {
+        "translate": "advancements.fathoms.nautical.cut_aberration.description"
+      },
+	  "\n\n",
+	  [
+	    {
+          "text": "0 ",
+		  "color": "white",
+		  "font": "fathoms:icon"
+        },
+        {
+          "translate": "ui.fathoms.title",
+          "color": "white",
+		  "font": "fathoms:tooltip"
+        }
+	  ]
+    ],
+    "frame": "task"
+  },
+  "parent": "fathoms:nautical/catch_aberration",
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+execute if entity @s[tag=fathoms.block.chopping_block_interaction] run return run function fathoms:block/chopping_block/interaction/tick
+execute if entity @s[tag=fathoms.block.aberration_idol.committing] run return run function fathoms:block/aberration_idol/ritual/tick
+execute if entity @s[tag=fathoms.block.aberration_idol_interaction] run return run function fathoms:block/aberration_idol/interaction/tick
+execute if entity @s[tag=fathoms.block.nautilus_siphon_interaction] run return run function fathoms:block/nautilus_siphon/interaction/tick
+execute if entity @s[tag=fathoms.block.dredging_apparatus] run return run function fathoms:block/dredging_apparatus/tick
+execute if entity @s[tag=fathoms.block.dredging_apparatus_interaction] run return run function fathoms:block/dredging_apparatus/interaction/tick
+execute if entity @s[tag=fathoms.block.pylon] run return run function fathoms:block/pylon/tick
+execute if entity @s[tag=fathoms.block.coffer_interaction] run return run function fathoms:block/coffer/interaction/tick
+execute if entity @s[tag=fathoms.block.coffer,tag=fathoms.block.coffer.opening] run return run function fathoms:block/coffer/open/tick

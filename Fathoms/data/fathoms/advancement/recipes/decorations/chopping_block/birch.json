@@ -1,0 +1,13 @@
+{
+  "parent": "fathoms:recipes/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:fishing_rod_hooked"
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "fathoms:chopping_block/birch"
+    ]
+  }
+}

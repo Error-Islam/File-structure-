@@ -1,0 +1,2 @@
+execute unless score @s fathoms.entity matches 1.. run function fathoms:block/nautilus_siphon/eject/fail
+execute if score @s fathoms.entity matches 1.. run function fathoms:block/nautilus_siphon/eject/succeed

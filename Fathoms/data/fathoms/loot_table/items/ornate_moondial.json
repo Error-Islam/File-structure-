@@ -1,0 +1,108 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.ornate_moondial"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "item.fathoms.ornate_moondial.description.1",
+                "with": [
+                  {
+                    "translate": "item.fathoms.ornate_moondial.description.2",
+                    "color": "#d9e4ff",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "translate": "item.fathoms.ornate_moondial.description.3",
+                "with": [
+                  {
+                    "text": "0 1 2 3",
+                    "color": "white",
+                    "font": "fathoms:moon_cycle",
+                    "italic": false
+                  },
+                  {
+                    "translate": "item.fathoms.fish.essence.solstice.name",
+                    "color": "#fcdf7a",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "translate": "item.fathoms.ornate_moondial.description.3",
+                "with": [
+                  {
+                    "text": "4 5 6 7",
+                    "color": "white",
+                    "font": "fathoms:moon_cycle",
+                    "italic": false
+                  },
+                  {
+                    "translate": "item.fathoms.fish.essence.eclipse.name",
+                    "color": "#e2bfff",
+                    "italic": false
+                  }
+                ],
+                "color": "gray",
+                "italic": false
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "ornate_moondial"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:ornate_moondial",
+            "minecraft:custom_model_data": {
+              "strings": [
+                "unset"
+              ]
+            },
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "uncommon",
+            "!minecraft:consumable": {}
+          }
+        }
+      ]
+    }
+  ]
+}

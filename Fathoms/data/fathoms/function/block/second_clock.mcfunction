@@ -1,0 +1,9 @@
+execute if entity @s[tag=fathoms.block.chopping_block_interaction] run return run function fathoms:block/chopping_block/interaction/second_clock
+execute if entity @s[tag=fathoms.block.chopping_block] run return run function fathoms:block/chopping_block/second_clock
+execute if entity @s[tag=fathoms.block.nautilus_siphon_interaction] run return run function fathoms:block/nautilus_siphon/interaction/second_clock
+execute if entity @s[tag=fathoms.block.nautilus_siphon] unless score @s fathoms.entity matches 8.. if block ~ ~ ~ minecraft:water if block ^ ^ ^1 minecraft:water if biome ~ ~ ~ #fathoms:fishing/has_fish run return run function fathoms:block/nautilus_siphon/catch/in_water
+execute if entity @s[tag=fathoms.block.dredging_apparatus_interaction] run return run function fathoms:block/dredging_apparatus/interaction/second_clock
+execute if entity @s[tag=fathoms.block.aberration_idol.active_effect] run return run function fathoms:block/aberration_idol/ritual/active/second_clock
+execute if entity @s[tag=fathoms.block.aberration_idol_interaction] run return run function fathoms:block/aberration_idol/interaction/second_clock
+execute if entity @s[tag=fathoms.block.pylon] run return run function fathoms:block/pylon/second_clock
+execute if entity @s[tag=fathoms.block.coffer_interaction] run return run function fathoms:block/coffer/interaction/second_clock

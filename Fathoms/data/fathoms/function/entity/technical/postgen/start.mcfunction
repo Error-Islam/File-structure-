@@ -1,0 +1,3 @@
+execute if entity @s[tag=fathoms.postgen.rocky_waters.biome] run return run function fathoms:entity/technical/postgen/rocky_waters/biome
+execute if entity @s[tag=fathoms.postgen.oasis.biome] run return run function fathoms:entity/technical/postgen/oasis/biome
+execute if entity @s[tag=fathoms.postgen.ancient_reservoir.biome] run return run function fathoms:entity/technical/postgen/ancient_reservoir/biome

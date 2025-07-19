@@ -1,0 +1,1 @@
+execute if score @s fathoms.entity matches 1.. run scoreboard players remove @s fathoms.entity 1

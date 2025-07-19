@@ -1,0 +1,1 @@
+effect give @e[type=!#thallium:non_living,distance=..4] minecraft:poison 60

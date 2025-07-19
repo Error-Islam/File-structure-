@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.halibut"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+			  "",
+              [
+                {
+                  "translate": "item.fathoms.fish.essence.solstice.symbol",
+                  "color": "white",
+                  "font": "fathoms:essence",
+                  "italic": false
+                },
+                {
+                  "translate": "item.fathoms.fish.essence.solstice.name",
+                  "color": "gray",
+                  "font": "minecraft:default",
+                  "italic": false
+                }
+              ],
+              [
+                {
+                  "translate": "item.fathoms.fish.essence.stamina.symbol",
+                  "color": "white",
+                  "font": "fathoms:essence",
+                  "italic": false
+                },
+                {
+                  "translate": "item.fathoms.fish.essence.stamina.name",
+                  "color": "gray",
+                  "font": "minecraft:default",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "halibut",
+                "fish": {
+                  "chopping_block_loot_table": "fathoms:gameplay/chopping_block/halibut",
+                  "essences": [
+                    "solstice",
+                    "stamina"
+                  ],
+                  "xp": 7
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:fish/halibut",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "common",
+            "!minecraft:consumable": {}
+          }
+        }
+      ]
+    }
+  ]
+}

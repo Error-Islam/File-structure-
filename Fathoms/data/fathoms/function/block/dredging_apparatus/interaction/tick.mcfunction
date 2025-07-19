@@ -1,0 +1,2 @@
+execute if data entity @s interaction positioned ~ ~0.5 ~ run function fathoms:block/dredging_apparatus/interaction/right_click
+execute if data entity @s attack positioned ~ ~0.5 ~ run function fathoms:block/dredging_apparatus/interaction/left_click

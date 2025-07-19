@@ -1,0 +1,128 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone_sword"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.sacrificial_knife"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+			  "",
+              {
+                "translate": "item.modifiers.fathoms.cutting_fish",
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "translate": "attribute.fathoms.conveys_essence",
+                "color": "#a6d0b9",
+                "italic": false
+              },
+			  "",
+              {
+                "translate": "item.modifiers.mainhand",
+                "color": "gray",
+                "italic": false
+              },
+              [
+                {
+                  "text": " 6 ",
+                  "color": "dark_green",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.name.attack_damage",
+                  "color": "dark_green",
+                  "italic": false
+                }
+              ],
+              [
+                {
+                  "text": " 1.6 ",
+                  "color": "dark_green",
+                  "italic": false
+                },
+                {
+                  "translate": "attribute.name.attack_speed",
+                  "color": "dark_green",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "sacrificial_knife"
+              },
+              "valiance": {
+                "weapon": {
+                  "category": "sacrificial_knife",
+                  "attack_function": "empty",
+                  "attack_sound": "valiance:item.sacrificial_knife.hit",
+                  "equip_sound": "valiance:item.sacrificial_knife.equip"
+                }
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:sacrificial_knife",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "common",
+            "minecraft:attribute_modifiers": [
+              {
+                "type": "minecraft:attack_damage",
+                "id": "fathoms:item.sacrificial_knife.attack_damage",
+                "amount": 5,
+                "operation": "add_value",
+                "slot": "mainhand"
+              },
+              {
+                "type": "minecraft:attack_speed",
+                "id": "fathoms:item.sacrificial_knife.attack_speed",
+                "amount": -2.4,
+                "operation": "add_value",
+                "slot": "mainhand"
+              }
+            ],
+            "minecraft:tooltip_display": {
+              "hidden_components": [
+                "minecraft:attribute_modifiers"
+              ]
+            },
+            "minecraft:max_damage": 666,
+            "minecraft:repairable": {
+              "items": "minecraft:obsidian"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

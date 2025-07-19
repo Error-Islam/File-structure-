@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:equipment",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:turtle_helmet",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:trim": {
+                  "material": "fathoms:tell_tale_heart",
+                  "pattern": "minecraft:coast"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:turtle_helmet",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:trim": {
+                  "material": "fathoms:tell_tale_heart",
+                  "pattern": "minecraft:tide"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

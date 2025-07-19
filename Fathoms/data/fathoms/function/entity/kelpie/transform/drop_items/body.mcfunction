@@ -1,0 +1,2 @@
+loot spawn ~ ~1 ~ loot {"pools": [{"rolls": 1,"entries": [{"type": "minecraft:item","name": "minecraft:poisonous_potato","functions": [{"function": "minecraft:set_custom_data","tag": "{fathoms:{to_be_replaced:1b}}"},{"function": "minecraft:set_components","components": {"minecraft:item_model": "fathoms:empty"}}]}]}]}
+data modify entity @n[type=minecraft:item,nbt={Item:{components:{"minecraft:custom_data":{fathoms:{to_be_replaced:1b}}}}}] Item set from storage fathoms:temp root.entity.equipment.body

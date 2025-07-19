@@ -1,0 +1,188 @@
+{
+  "type": "minecraft:notice",
+  "title": {
+    "translate": "ui.thallium.credits"
+  },
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.not_paused"
+      }
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": ""
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.hyphen",
+        "with": [
+          {
+            "translate": "contributor.lead",
+            "color": "#c99b73"
+          },
+          {
+            "translate": "contributor.fathoms.lead.description"
+          }
+        ],
+        "click_event": {
+          "action": "open_url",
+          "url": "https://modrinth.com/user/LeadIngot"
+        },
+        "hover_event": {
+          "action": "show_text",
+          "value": {
+            "text": "https://modrinth.com/user/LeadIngot"
+          }
+        }
+      },
+      "width": 500
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.hyphen",
+        "with": [
+          {
+            "translate": "contributor.fracturedflux",
+            "color": "#f35189"
+          },
+          {
+            "translate": "contributor.fathoms.fracturedflux.description"
+          }
+        ],
+        "click_event": {
+          "action": "open_url",
+          "url": "https://modrinth.com/user/FracturedFlux"
+        },
+        "hover_event": {
+          "action": "show_text",
+          "value": {
+            "text": "https://modrinth.com/user/FracturedFlux"
+          }
+        }
+      },
+      "width": 500
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.hyphen",
+        "with": [
+          {
+            "translate": "contributor.creepermagnet",
+            "color": "#006e1e"
+          },
+          {
+            "translate": "contributor.fathoms.creepermagnet.description"
+          }
+        ],
+        "click_event": {
+          "action": "open_url",
+          "url": "https://thecreeperscode.com/"
+        },
+        "hover_event": {
+          "action": "show_text",
+          "value": {
+            "text": "https://thecreeperscode.com/"
+          }
+        }
+      },
+      "width": 500
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.hyphen",
+        "with": [
+          {
+            "translate": "contributor.ninesnow",
+            "color": "#df428a"
+          },
+          {
+            "translate": "contributor.fathoms.ninesnow.description"
+          }
+        ],
+        "click_event": {
+          "action": "open_url",
+          "url": "https://modrinth.com/user/ninesnow"
+        },
+        "hover_event": {
+          "action": "show_text",
+          "value": {
+            "text": "https://modrinth.com/user/ninesnow"
+          }
+        }
+      },
+      "width": 500
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.hyphen",
+        "with": [
+          {
+            "translate": "contributor.phiphi",
+            "color": "#b4e5fc"
+          },
+          {
+            "translate": "contributor.fathoms.phiphi.description"
+          }
+        ],
+        "click_event": {
+          "action": "open_url",
+          "url": "https://modrinth.com/user/Phiphi"
+        },
+        "hover_event": {
+          "action": "show_text",
+          "value": {
+            "text": "https://modrinth.com/user/Phiphi"
+          }
+        }
+      },
+      "width": 500
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "ui.thallium.hyphen",
+        "with": [
+          {
+            "translate": "contributor.thenuclearnexus",
+            "color": "#1947c2"
+          },
+          {
+            "translate": "contributor.fathoms.thenuclearnexus.description"
+          }
+        ],
+        "click_event": {
+          "action": "open_url",
+          "url": "https://smithed.net/"
+        },
+        "hover_event": {
+          "action": "show_text",
+          "value": {
+            "text": "https://smithed.net/"
+          }
+        }
+      },
+      "width": 500
+    },
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "translate": "credits.fathoms.community",
+        "with": [
+          {
+            "translate": "credits.fathoms.community.foundry",
+            "color": "#f35189"
+          }
+        ]
+      },
+      "width": 500
+    }
+  ],
+  "pause": false
+}

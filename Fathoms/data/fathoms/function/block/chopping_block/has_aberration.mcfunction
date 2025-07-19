@@ -1,0 +1,2 @@
+particle minecraft:mycelium ~ ~-0.1 ~ 0.25 0.1 0.25 0 1
+execute unless block ~ ~-1 ~ #minecraft:wool unless block ~ ~-2 ~ #minecraft:wool run playsound fathoms:item.fish.aberration.heartbeat block @a[distance=..4] ~ ~ ~ 0.25

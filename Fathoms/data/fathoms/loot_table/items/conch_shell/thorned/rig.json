@@ -1,0 +1,66 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:goat_horn"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.thorned_shell"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+              {
+                "translate": "instrument.fathoms.thorned_shell.rig",
+                "color": "gray",
+                "italic": false
+              }
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "thorned_shell",
+			        	"reel_effect": "aberration"
+              },
+              "smithed": {
+                "ignore": {
+                  "functionality": true,
+                  "crafting": true
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:conch_shell/thorned",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "rare",
+            "minecraft:instrument": "fathoms:conch_shell/thorned/rig",
+            "minecraft:tooltip_display": {
+              "hidden_components": [
+                "minecraft:instrument"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

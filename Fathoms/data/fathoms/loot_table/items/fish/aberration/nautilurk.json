@@ -1,0 +1,87 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:item_name": {
+              "translate": "item.fathoms.nautilurk"
+            },
+            "minecraft:lore": [
+              [
+                {
+                  "text": "0 ",
+                  "color": "white",
+                  "font": "fathoms:icon",
+                  "italic": false
+                },
+                {
+                  "translate": "ui.fathoms.title",
+                  "color": "white",
+                  "font": "fathoms:tooltip",
+                  "italic": false
+                }
+              ],
+			  "",
+              [
+                {
+                  "translate": "item.fathoms.fish.essence.aberration.symbol",
+                  "color": "white",
+                  "font": "fathoms:essence",
+                  "italic": false
+                },
+                {
+                  "translate": "item.fathoms.fish.essence.aberration.name",
+                  "color": "red",
+                  "font": "minecraft:default",
+                  "italic": false
+                }
+              ],
+              [
+                {
+                  "translate": "item.fathoms.fish.essence.cunning.symbol",
+                  "color": "white",
+                  "font": "fathoms:essence",
+                  "italic": false
+                },
+                {
+                  "translate": "item.fathoms.fish.essence.cunning.name",
+                  "color": "gray",
+                  "font": "minecraft:default",
+                  "italic": false
+                }
+              ]
+            ],
+            "minecraft:custom_data": {
+              "fathoms": {
+                "id": "nautilurk",
+				"reel_effect": "aberration",
+                "fish": {
+                  "chopping_block_loot_table": "fathoms:gameplay/chopping_block/aberration/nautilurk",
+                  "essences": [
+                    "aberration",
+                    "cunning"
+                  ],
+                  "xp": 25
+                }
+              }
+            },
+            "minecraft:item_model": "fathoms:fish/aberration/nautilurk",
+            "minecraft:tooltip_style": "fathoms:fathoms",
+            "minecraft:rarity": "rare",
+            "!minecraft:consumable": {}
+          }
+        }
+      ]
+    }
+  ]
+}

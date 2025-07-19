@@ -1,0 +1,11 @@
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"oak"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/oak
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"spruce"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/spruce
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"birch"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/birch
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"jungle"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/jungle
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"dark_oak"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/dark_oak
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"acacia"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/acacia
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"mangrove"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/mangrove
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"cherry"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/cherry
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"bamboo"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/bamboo
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"crimson"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/crimson
+execute if data block ~ ~ ~ Items.[{Slot:0b,components:{"minecraft:custom_data":{thallium:{block:{variant:"warped"}}}}}] run loot spawn ~ ~ ~ loot fathoms:items/chopping_block/warped
