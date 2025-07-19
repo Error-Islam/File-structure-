@@ -22,17 +22,15 @@ jobs:
         id: timestamp
         run: echo "TIMESTAMP=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
 
-      - name: 📁 Ensure config files
+      - name: 🧩 Ensure config files
         run: |
           if [ ! -f config.yml ]; then
             echo "folders:" > config.yml
             echo "  - '**/*.json'" >> config.yml
-            echo "✅ Created default config.yml"
           fi
           if [ ! -f unzip-config.yml ]; then
             echo "unzip:" > unzip-config.yml
             echo "  - 'Fathoms.zip'" >> unzip-config.yml
-            echo "✅ Created default unzip-config.yml"
           fi
 
       - name: 🧳 Unzip all ZIPs
@@ -47,64 +45,42 @@ jobs:
             fi
           done
 
-      - name: 🧠 Intelligent content processing
-        id: processor
-        uses: actions/github-script@v6
-        env:
-          TIMESTAMP: ${{ steps.timestamp.outputs.TIMESTAMP }}
-        with:
-          script: |
-            const fs = require('fs');
-            const path = require('path');
-            const yaml = require('js-yaml');
-            const globLib = require('glob');
+      - name: 🧠 Process Files
+        run: |
+          mkdir -p generated
+          TIMESTAMP="${{ steps.timestamp.outputs.TIMESTAMP }}"
 
-            const combined = [];
-            const allFiles = globLib.sync('extracted_assets/**/*', { nodir: true });
+          echo "" > data.txt
+          ALL_FILES=$(find extracted_assets -type f)
 
-            allFiles.forEach(file => {
-              try {
-                const content = fs.readFileSync(file, 'utf-8');
-                const relativePath = path.relative('extracted_assets', file);
-                combined.push(`===== ${relativePath} =====\n${content}`);
-              } catch (e) {
-                core.warning(`Skipped ${file}: ${e.message}`);
-              }
-            });
+          for file in $ALL_FILES; do
+            rel_path="${file#extracted_assets/}"
+            content=$(cat "$file")
+            echo "===== $rel_path =====" >> data.txt
+            echo "$content" >> data.txt
+            echo "" >> data.txt
+          done
 
-            fs.writeFileSync('data.txt', combined.join('\n\n'));
-            core.info(`📝 Combined ${allFiles.length} files into data.txt`);
+          echo "✅ Combined data.txt created with $(echo "$ALL_FILES" | wc -l) files"
 
-            const config = yaml.load(fs.readFileSync('config.yml', 'utf8'));
-            const patterns = config.folders || [];
-            const outputDir = 'generated';
-            fs.mkdirSync(outputDir, { recursive: true });
+          GENERATED=0
+          for pattern in $(yq eval '.folders[]' config.yml); do
+            MATCHED=$(find extracted_assets -type f -path "extracted_assets/$pattern")
+            for file in $MATCHED; do
+              rel_path="${file#extracted_assets/}"
+              safe_name=$(echo "$rel_path" | tr '/ ' '꞉🝗')
+              out_file="generated/${safe_name}_${TIMESTAMP}.txt"
+              echo "🔖 $rel_path" > "$out_file"
+              cat "$file" >> "$out_file"
+              GENERATED=$((GENERATED+1))
+            done
+          done
 
-            let generated = 0;
-            for (const pattern of patterns) {
-              const files = globLib.sync(`extracted_assets/${pattern}`, { nodir: true });
-              for (const file of files) {
-                try {
-                  const content = fs.readFileSync(file, 'utf-8');
-                  const relPath = path.relative('extracted_assets', file);
-                  const safeName = relPath.replace(/[\/\\]/g, '꞉').replace(/\s/g, '🝗');
-                  const outPath = `${outputDir}/${safeName}_${process.env.TIMESTAMP}.txt`;
-                  fs.writeFileSync(outPath, `🔖 ${relPath}\n\n${content}`);
-                  generated++;
-                } catch (e) {
-                  core.warning(`Skipped ${file}: ${e.message}`);
-                }
-              }
-            }
+          echo "Generated $GENERATED summary files"
+          echo "changes=$GENERATED" >> $GITHUB_OUTPUT
 
-            core.setOutput('changes', generated > 0 ? 'true' : 'false');
-            core.info(`✨ ${generated} summary files generated`);
-
-      - name: 🧼 Cleanup
-        run: rm -rf extracted_assets
-
-      - name: 💾 Commit & push changes
-        if: steps.processor.outputs.changes == 'true'
+      - name: 💾 Commit & push
+        if: success()
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -112,12 +88,11 @@ jobs:
           git diff --cached --quiet || git commit -m "🔄 Auto update summaries ${{ steps.timestamp.outputs.TIMESTAMP }}"
           git push
 
-      - name: 🚀 Open PR (if not on main)
-        if: steps.processor.outputs.changes == 'true' && github.ref == 'refs/heads/main'
+      - name: 🚀 Open PR (only from main branch)
+        if: github.ref == 'refs/heads/main'
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "🔄 Auto update summaries ${{ steps.timestamp.outputs.TIMESTAMP }}"
           branch: auto/summaries-${{ steps.timestamp.outputs.TIMESTAMP }}
           title: "🔄 Summary update - ${{ steps.timestamp.outputs.TIMESTAMP }}"
           body: "Automated summary files generated from extracted content."
-          
